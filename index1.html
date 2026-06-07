@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eine Überraschung für dich</title>
+    <!-- Das lädt den Konfetti-Effekt -->
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff5f5;
+            text-align: center;
+            overflow: hidden;
+        }
+        .box {
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 90%;
+            width: 400px;
+            position: relative;
+            z-index: 10;
+        }
+        /* Styling für Ihr Foto */
+        .foto {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+        button:hover {
+            background-color: #ff758f;
+        }
+        .hidden {
+            display: none;
+        }
+        h1 {
+            color: #ff4d6d;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <!-- SCHRITT 1: Der Startbildschirm -->
+        <div id="schritt1">
+            <h1>hey hey :)</h1>
+            <p>Ich hab eine kleine Überraschung für dich vorbereitet.</p>
+            <button onclick="zeigeSchritt2()">Öffnen</button>
+        </div>
+
+        <!-- SCHRITT 2: Gratulation, du hast ein Jahr mit mir geschafft! + Konfetti -->
+        <div id="schritt2" class="hidden">
+            <h1>Gratulation, du hast ein Jahr mit mir geschafft! &#x2764;&#xFE0F;</h1>
+            <button onclick="zeigeSchritt3()">Weiter</button>
+        </div>
+
+        <!-- SCHRITT 3: Ihr persönlicher Text-->
+        <div id="schritt3" class="hidden">
+
+            
+            <h1>...</h1>
+            <p>Du hast dein Abo um ein weiteres Jahr verlängert!!! </p>
+<p> Bitte nächstes Jahr wieder kommen, um das Abo nochmals zu verlängern :) <p>
+<p> <p>
+<p> <p>
+<p> <p>
+<p> <p>
+<p> <p>
+<p> <p>
+<p> <p>
+<p>Dieses Abonnement kann leider nicht rückerstattet werden, oder gegen ein anderes eingetauscht werden.<p>
+        </div>
+    </div>
+
+    <script>
+        function zeigeSchritt2() {
+            document.getElementById('schritt1').classList.add('hidden');
+            document.getElementById('schritt2').classList.remove('hidden');
+            
+            // Das zündet das Konfetti, sobald Schritt 2 sichtbar wird
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function zeigeSchritt3() {
+            document.getElementById('schritt2').classList.add('hidden');
+            document.getElementById('schritt3').classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
